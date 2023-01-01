@@ -1,0 +1,81 @@
+{
+  "name": "side-notes",
+  "displayName": "Side Notes",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsWelcome": [
+      {
+        "view": "notesView",
+        "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:notesView.addNote)",
+        "when": "notesView.notesLen == 0"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "side-notes",
+          "title": "Side Notes",
+          "icon": "media/notesIcon.svg"
+        }
+      ]
+    },
+    "views": {
+      "side-notes": [
+        {
+          "id": "notesView",
+          "name": "Notes",
+          "type": "tree"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "notesView.addNote",
+          "group": "navigation",
+          "when": "view == notesView && notesView.notesLen > 0"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "notesView.addNote",
+        "title": "Add Side Note",
+        "icon": "$(add)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^16.18.11",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
