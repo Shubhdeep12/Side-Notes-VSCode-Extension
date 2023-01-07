@@ -15,7 +15,7 @@
     "viewsWelcome": [
       {
         "view": "notesView",
-        "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:notesView.addNote)",
+        "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Notes](command:notesView.addNote)",
         "when": "notesView.notesLen == 0"
       }
     ],
